@@ -1,0 +1,20 @@
+[
+  {
+    "id": "group1",
+    "name": "Hiking Buddies",
+    "bio": "A group for people who love hiking and outdoor adventures",
+    "members": ["2", "3"]
+  },
+  {
+    "id": "group2",
+    "name": "Foodies United",
+    "bio": "A group for chefs and food lovers to share recipes",
+    "members": ["4", "5"]
+  },
+  {
+    "id": "group3",
+    "name": "Morning Yogis",
+    "bio": "A group of people practicing yoga together every morning",
+    "members": ["2", "6", "4"]
+  }
+]

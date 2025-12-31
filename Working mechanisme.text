@@ -1,0 +1,156 @@
+app.post("/saveActive", async (req, res) => {
+  try {
+    const { userId, connection } = req.body;
+
+    console.log("🟡 /saveActive HIT", req.body);
+
+    await User.updateOne(
+      { id: userId },
+      { $addToSet: { activeConnections: connection } }
+    );
+
+    res.json({ success: true });
+  } catch (err) {
+    console.error("❌ Error in /saveActive:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+ const [search, setSearch] = useState('');
+
+  const [items, setItems] = React.useState([
+    {
+      name: 'Gymboys',
+      page: 'gymboys',
+      bio: 'Workout crew',
+      type: 'group',
+      status: 'active',
+    },
+    {
+      name: 'Jake',
+      page: 'jake',
+      bio: 'Cool guy',
+      type: 'person',
+      status: 'active',
+    },
+    {
+      name: 'Foodies',
+      page: 'foodies',
+      bio: 'Loves food',
+      type: 'group',
+      status: 'active', // changed
+    },
+    {
+      name: 'Henk',
+      page: 'henkies',
+      bio: 'loves moving',
+      type: 'person',
+      status: 'active', // changed
+    },
+    {
+      name: 'Gerda',
+      page: 'Gerda',
+      bio: 'he is my favorite person',
+      type: 'person',
+      status: 'active',
+    },
+  ]);
+
+  const [peoplePages, setPeoplePages] = useState([
+    'people',
+    'archived',
+    'gymboys',
+    'travelgang',
+    'futureyou',
+    'jake',
+    'addpeople',
+  ]);
+
+  const [algorithmResult, setAlgorithmResult] = useState(null);
+  const [mlUser, setMlUser] = useState(null);
+  const [allUsers, setAllUsers] = useState([]);
+  const [allGroups, setAllGroups] = useState([]);
+  const [allGroupsDB, setAllGroupsDB] = useState([]);
+
+  const [userId, setUserId] = useState(null);
+  const [userName, setUserName] = useState(""); // stores name from input
+
+  const [debouncedName, setDebouncedName] = useState(userName);
+
+  // this make the algrotihm wait untill you stopped typing youre name
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedName(userName);
+    }, 1000); // 1000ms after last keystroke
+
+    return () => clearTimeout(handler); // reset timeout if typing continues
+  }, [userName]);
+
+
+
+  const [myRanking, setMyRanking] = useState([]);
+
+  const handleAddAndMove = async (item) => {
+    console.log("🟡 Adding item:", item);
+
+    moveItem(item.page, 'active');
+    handleAddUser(item);
+
+    try {
+      console.log("➡️ Sending to /saveActive...");
+      const res = await fetch("http://192.168.1.32:5000/saveActive", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId,
+          connection: {
+            id: item.id,
+            type: item.type
+          }
+        })
+      });
+
+      const data = await res.json();
+      console.log("✅ SaveActive response:", data);
+    } catch (err) {
+      console.error("❌ Frontend fetch error:", err);
+    }
+  };
+
+
+  useEffect(() => {
+    if (!userId) return;
+
+    const loadActive = async () => {
+      const res = await fetch(`http://192.168.1.32:5000/getActive/${userId}`);
+      const data = await res.json();
+
+      // fetch full user/group info
+      const allUsersRes = await fetch("http://192.168.1.32:5000/users");
+      const allGroupsRes = await fetch("http://192.168.1.32:5000/groups");
+      const [users, groups] = await Promise.all([allUsersRes.json(), allGroupsRes.json()]);
+
+      const formatted = data.map(c => {
+        if (c.type === "person") {
+          const user = users.find(u => u.id === c.id);
+          return { ...user, status: "active" };
+        } else {
+          const group = groups.find(g => g.id === c.id);
+          return { ...group, status: "active" };
+        }
+      }).filter(Boolean);
+
+      setItems(prev => [...formatted, ...prev]);
+    };
+
+    loadActive();
+  }, [userId]);
+
+
+
+
+            <Button
+              disabled={!request}
+              title="Login met Google"
+              onPress={() => promptAsync()}
+            />

@@ -1,0 +1,177 @@
+[
+  {
+    "id": "2",
+    "name": "Alice",
+    "Country": "NL",
+    "time_zone": "CET",
+    "bio": "Fitness enthusiast",
+    "groupsEntered": ["Fitness Group"],
+    "connections": ["3", "5"],
+    "tasks": [
+      {
+        "text": "Morning Workout",
+        "desc": "Full body routine",
+        "timeTaken": 45,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Warm-up", "checked": false, "timeTaken": 10 },
+          { "text": "Cardio", "checked": false, "timeTaken": 15 },
+          { "text": "Strength", "checked": false, "timeTaken": 20 }
+        ]
+      },
+      {
+        "text": "Meal Prep",
+        "desc": "Prepare healthy meals",
+        "timeTaken": 60,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Chop veggies", "checked": false, "timeTaken": 20 },
+          { "text": "Cook protein", "checked": false, "timeTaken": 30 },
+          { "text": "Pack meals", "checked": false, "timeTaken": 10 }
+        ]
+      }
+    ],
+    "goals": [
+      { "title": "Build Strength", "daysPerWeek": 4, "streakNumber": 2, "Currentstreak": "2", "longeststreak": "6 days", "consistency": "33%" }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Bob",
+    "Country": "NL",
+    "time_zone": "CET",
+    "bio": "Designer",
+    "groupsEntered": ["Designers Hub"],
+    "tasks": [
+      {
+        "text": "Sketch Logo",
+        "desc": "Work on client logo design",
+        "timeTaken": 120,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Brainstorm ideas", "checked": true, "timeTaken": 30 },
+          { "text": "Draw concepts", "checked": false, "timeTaken": 60 },
+          { "text": "Finalize sketch", "checked": false, "timeTaken": 30 }
+        ]
+      },
+      {
+        "text": "Moodboard",
+        "desc": "Create inspiration board",
+        "timeTaken": 45,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Collect images", "checked": true, "timeTaken": 20 },
+          { "text": "Arrange board", "checked": false, "timeTaken": 25 }
+        ]
+      }
+    ],
+    "goals": [
+      { "title": "Improve Creativity", "daysPerWeek": 3, "streakNumber": 1, "Currentstreak": "1", "longeststreak": "4 days", "consistency": "25%" }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Charlie",
+    "Country": "DE",
+    "time_zone": "CET",
+    "bio": "Yoga instructor",
+    "groupsEntered": ["Yoga Club", "Fitness Group"],
+    "tasks": [
+      {
+        "text": "Morning Yoga",
+        "desc": "Stretching and meditation",
+        "timeTaken": 60,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Warm-up stretches", "checked": false, "timeTaken": 15 },
+          { "text": "Sun Salutation", "checked": false, "timeTaken": 20 },
+          { "text": "Meditation", "checked": false, "timeTaken": 25 }
+        ]
+      },
+      {
+        "text": "Plan Classes",
+        "desc": "Schedule weekly yoga sessions",
+        "timeTaken": 90,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Check client availability", "checked": true, "timeTaken": 30 },
+          { "text": "Prepare lesson plan", "checked": false, "timeTaken": 40 },
+          { "text": "Confirm schedule", "checked": false, "timeTaken": 20 }
+        ]
+      }
+    ],
+    "goals": [
+      { "title": "Increase Flexibility", "daysPerWeek": 3, "streakNumber": 2, "Currentstreak": "2", "longeststreak": "5 days", "consistency": "40%" }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Dana",
+    "Country": "US",
+    "time_zone": "EST",
+    "bio": "Software engineer",
+    "groupsEntered": ["Tech Group"],
+    "tasks": [
+      {
+        "text": "Write Code",
+        "desc": "Implement new features",
+        "timeTaken": 180,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Design API", "checked": true, "timeTaken": 60 },
+          { "text": "Implement logic", "checked": false, "timeTaken": 90 },
+          { "text": "Write tests", "checked": false, "timeTaken": 30 }
+        ]
+      },
+      {
+        "text": "Code Review",
+        "desc": "Review teammates' PRs",
+        "timeTaken": 60,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Read PR", "checked": true, "timeTaken": 20 },
+          { "text": "Comment", "checked": false, "timeTaken": 20 },
+          { "text": "Approve", "checked": false, "timeTaken": 20 }
+        ]
+      }
+    ],
+    "goals": [
+      { "title": "Improve Efficiency", "daysPerWeek": 5, "streakNumber": 3, "Currentstreak": "3", "longeststreak": "7 days", "consistency": "60%" }
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Eve",
+    "Country": "UK",
+    "time_zone": "GMT",
+    "bio": "Photographer",
+    "groupsEntered": ["Photography Club"],
+    "tasks": [
+      {
+        "text": "Photo Shoot",
+        "desc": "Outdoor session",
+        "timeTaken": 90,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Setup", "checked": false, "timeTaken": 20 },
+          { "text": "Shoot", "checked": false, "timeTaken": 60 },
+          { "text": "Pack Up", "checked": false, "timeTaken": 10 }
+        ]
+      },
+      {
+        "text": "Edit Photos",
+        "desc": "Post-processing",
+        "timeTaken": 120,
+        "startTime": 0,
+        "subtasks": [
+          { "text": "Select Shots", "checked": false, "timeTaken": 30 },
+          { "text": "Retouch", "checked": false, "timeTaken": 60 },
+          { "text": "Export", "checked": false, "timeTaken": 30 }
+        ]
+      }
+    ],
+    "goals": [
+      { "title": "Build Portfolio", "daysPerWeek": 4, "streakNumber": 1, "Currentstreak": "1", "longeststreak": "3 days", "consistency": "25%" }
+    ]
+  }
+]

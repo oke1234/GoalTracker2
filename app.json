@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "def-final",
+    "slug": "def-final",
+    "version": "1.0.0",
+    "scheme": "deffinal",
+    "platforms": ["ios", "android", "web"],
+    "sdkVersion": "54.0.0"
+  }
+}

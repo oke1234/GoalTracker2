@@ -1,0 +1,19 @@
+🧱 To-Do: Smart Local + Server Sync System
+
+Local Data Store
+Store all users + groups locally in state.
+Add local-only fields: status, expanded, etc.
+
+Algorithm Order Integration
+Algorithm only returns { id, type, score }.
+Use it to order your local data (don’t overwrite it).
+
+Partial Server Sync
+Fetch updates (poll or WebSocket).
+Merge only changed fields (e.g. bio, name) into local data.
+Keep status and other local fields untouched.
+
+Reactive UI
+Always render users/groups from your local ordered state.
+Reorder when algorithm updates.
+Instantly reflect local changes like status.

@@ -1,0 +1,54 @@
+{filteredSuggestions.length > 0 && (
+  <View
+    style={{
+      maxHeight: 120,
+      marginTop: 5,
+      zIndex: 999,
+      elevation: 10,
+    }}>
+    <FlatList
+      data={filteredSuggestions}
+      keyExtractor={(item) => item}
+      nestedScrollEnabled={true}
+      keyboardShouldPersistTaps="handled"
+      renderItem={({ item }) => (
+        <Pressable
+          onPress={(e) => {
+            e.stopPropagation(); // Prevent outer Pressable onPress
+            handleAddSuggestionTask(item);
+          }}
+          style={{
+            padding: 8,
+            backgroundColor: '#eee',
+            marginBottom: 2,
+            borderRadius: 5,
+          }}>
+          <Text>{item}</Text>
+        </Pressable>
+      )}
+    />
+  </View>
+)}
+
+
+
+const removeSuggestedIfActiveDuplicate = (items) => {
+    // Collect base IDs of all active items (before any '_')
+    const activeBaseIds = new Set(
+      items
+        .filter(i => i.status === "active")
+        .map(i => i.id.split('_')[0])
+    );
+
+    return items.filter(item => {
+      // always keep active
+      if (item.status === "active") return true;
+
+      // for suggested items, check if base id exists in active
+      const baseId = item.id.split('_')[0];
+      if (activeBaseIds.has(baseId)) return false;
+
+      // otherwise keep
+      return true;
+    });
+  };
